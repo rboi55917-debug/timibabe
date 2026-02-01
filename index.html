@@ -38,7 +38,7 @@
       const [noClicks, setNoClicks] = React.useState(0);
       const [isValentine, setIsValentine] = React.useState(false);
       const yesButtonSize = (noClicks * 20) + 16;
-      const bgImg = isValentine ? (Math.random() > 0.5 ? img2 : img3) : img1;
+      const bgImg = isValentine ? img2 : (noClicks > 0 ? img3 : img1);
 
       const handleNo = () => {
         setNoClicks(prev => prev + 1);
