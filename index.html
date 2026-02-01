@@ -31,12 +31,14 @@
     ];
 
     function App() {
+      const img1 = "WhatsApp%20Image%202026-02-01%20at%203.01.55%20PM.jpeg";
+      const img2 = "WhatsApp%20Image%202026-02-01%20at%203.01.56%20PM.jpeg";
+      const img3 = "WhatsApp%20Image%202026-02-01%20at%203.01.59%20PM.jpeg";
+
       const [noClicks, setNoClicks] = React.useState(0);
       const [isValentine, setIsValentine] = React.useState(false);
       const yesButtonSize = (noClicks * 20) + 16;
-
-      const firstImg = "https://media.tenor.com/VIChDQ6ejRQAAAAj/jumping-bear-hearts-no-png.gif";
-      const secondImg = "https://media.tenor.com/f1xnRxTRxLAAAAAj/bears-with-kisses-bg.gif";
+      const bgImg = isValentine ? (Math.random() > 0.5 ? img2 : img3) : img1;
 
       const handleNo = () => {
         setNoClicks(prev => prev + 1);
@@ -57,14 +59,17 @@
             height: "100vh",
             fontFamily: "Arial, sans-serif",
             textAlign: "center",
+            backgroundImage: `url(${bgImg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundAttachment: "fixed",
           }
         },
         !isValentine
           ? React.createElement(
               React.Fragment,
               null,
-              React.createElement("img", { src: firstImg }),
-              React.createElement("h1", null, "Will you be my Valentine? 💘"),
+              React.createElement("h1", null, "Adeola, Will you be my Valentine? 💘"),
               React.createElement(
                 "div",
                 null,
@@ -107,7 +112,6 @@
           : React.createElement(
               React.Fragment,
               null,
-              React.createElement("img", { src: secondImg }),
               React.createElement(
                 "div",
                 {
@@ -115,6 +119,7 @@
                     fontSize: "48px",
                     color: "pink",
                     fontWeight: "bold",
+                    textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
                   }
                 },
                 "Yay!!! 💖🎉"
