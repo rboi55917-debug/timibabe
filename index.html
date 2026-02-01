@@ -45,6 +45,8 @@
       };
 
       const handleYes = () => {
+        const audio = new Audio("WhatsApp%20Video%202026-02-01%20at%204.14.53%20PM.mp4");
+        audio.play().catch(err => console.error("Audio playback failed:", err));
         setIsValentine(true);
       };
 
